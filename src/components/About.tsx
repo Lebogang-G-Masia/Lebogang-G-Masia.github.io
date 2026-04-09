@@ -72,7 +72,10 @@ Linux masia-pc 6.6.10-arch
 x86_64 GNU/Linux
 
 $ du -sh .
-42G    projects/`}
+42G    projects/
+
+[!] SEC_WARN: ROOT override available.
+[!] Key: M4SI4`}
               </code>
             </pre>
           </div>

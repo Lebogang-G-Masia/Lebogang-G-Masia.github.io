@@ -8,19 +8,22 @@ const projects = [
     title: "Lingebra",
     description: "A custom C++ linear algebra library built from the ground up for high performance.",
     tags: ["C++", "SIMD", "OpenMP"],
-    color: "#00ff00"
+    color: "#00ff00",
+    link: "https://github.com/Lebogang-G-Masia/lingebra"
   },
   {
     title: "TensorLearn",
     description: "A custom machine learning library featuring bespoke neural network implementations.",
     tags: ["C++", "Python", "Backprop"],
-    color: "#ffffff"
+    color: "#ffffff",
+    link: "https://github.com/Lebogang-G-Masia/tensorlearn"
   },
   {
     title: "UniChows",
     description: "Backend infrastructure and deployment architecture for a Flutter-based food delivery application.",
     tags: ["Go", "Flutter", "GCP"],
-    color: "#666666"
+    color: "#666666",
+    link: "https://github.com/UniChows"
   }
 ];
 
@@ -107,7 +110,9 @@ const Projects: React.FC = () => {
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
+            <a href={project.link}>
+                <ProjectCard key={project.title} project={project} />
+            </a>
           ))}
         </div>
       </motion.div>
