@@ -57,7 +57,7 @@ const EasterEgg: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
-          className="fixed bottom-10 right-10 w-80 md:w-96 bg-black border border-primary/40 p-4 font-mono text-sm z-50 border-glow"
+          className="fixed bottom-10 right-10 w-80 md:w-96 bg-background border border-primary/40 p-4 font-mono text-sm z-50 border-glow"
         >
           <div className="flex justify-between mb-2 border-b border-primary/20 pb-1">
             <span className="text-primary text-xs">ROOT@MASIA-KERN</span>

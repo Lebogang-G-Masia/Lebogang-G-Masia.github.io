@@ -1,64 +1,56 @@
 'use client';
 
-import MatrixBackground from '@/components/MatrixBackground';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Projects from '@/components/Projects';
 import TechStack from '@/components/TechStack';
 import EasterEgg from '@/components/EasterEgg';
 
-import SideMonitor from '@/components/SideMonitor';
-
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black selection:bg-primary selection:text-black">
+    <main className="min-h-screen bg-background selection:bg-primary selection:text-white relative pb-20">
       {/* Background & Overlays */}
-      <MatrixBackground />
-      <div className="fixed inset-0 scanlines pointer-events-none z-40 opacity-20" />
-      <div className="fixed inset-0 crt-flicker pointer-events-none z-40 opacity-[0.03]" />
+      <div className="fixed inset-0 bg-dot-pattern pointer-events-none opacity-50" />
       
-      {/* Persistant Workspace Elements */}
-      <SideMonitor />
-      
-      {/* Main Content Pane */}
-      <div className="ml-16 md:ml-20 relative z-10 border-l border-primary/10 min-h-screen flex flex-col">
-        
-        {/* Navigation / Breadcrumb Bar */}
-        <nav className="h-10 border-b border-primary/20 flex items-center px-6 text-[10px] font-mono text-secondary sticky top-0 bg-background/80 backdrop-blur-sm z-30">
-          <span className="text-primary/60">~/masia-portfolio</span>
-          <span className="mx-2">/</span>
-          <span className="text-foreground">index.tsx</span>
-          <div className="ml-auto flex gap-4">
-            <span>MODE: STABLE</span>
-            <span className="text-primary">GIT:(MAIN)</span>
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 h-16 border-b border-white/5 bg-background/80 backdrop-blur-md z-50 flex items-center justify-center">
+        <div className="max-w-6xl w-full px-6 flex justify-between items-center">
+          <span className="font-bold tracking-tighter text-xl">MASIA.</span>
+          <div className="flex gap-8 text-sm font-medium text-secondary">
+            <a href="#about" className="hover:text-white transition-colors">About</a>
+            <a href="#projects" className="hover:text-white transition-colors">Projects</a>
+            <a href="#stack" className="hover:text-white transition-colors">Tech</a>
           </div>
-        </nav>
-
-        <div className="flex-1">
-          <Hero />
-          <About />
-          <Projects />
-          <TechStack />
         </div>
-        
-        <footer className="py-2 px-6 border-t border-primary/20 bg-primary/5 flex justify-between items-center text-primary text-[10px] font-mono">
-          <div className="flex gap-4">
-            <span className="bg-primary text-black px-2 font-bold italic">NORMAL</span>
-            <p>UTF-8 | C++ / TSX</p>
+      </nav>
+
+      <div className="max-w-6xl mx-auto px-6 pt-24 space-y-8">
+        {/* Bento Hero */}
+        <section id="hero">
+          <Hero />
+        </section>
+
+        {/* Main Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="md:col-span-2" id="about">
+            <About />
           </div>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">LN: 1024, COL: 56</a>
-            <p>© {new Date().getFullYear()} MASIA_OS</p>
+          <div className="md:col-span-1" id="stack">
+            <TechStack />
           </div>
-        </footer>
+        </div>
+
+        {/* Projects Full Width */}
+        <section id="projects">
+          <Projects />
+        </section>
       </div>
+      
+      <footer className="mt-20 py-10 border-t border-white/5 text-center text-secondary text-xs uppercase tracking-widest">
+        &copy; 2024 Lebogang Masia &mdash; Systems & Machine Learning
+      </footer>
 
       <EasterEgg />
-
-      {/* Info indicator for CLI */}
-      <div className="fixed bottom-12 right-6 text-[10px] text-secondary opacity-30 font-mono hidden md:block pointer-events-none">
-        CTRL + ` TO OPEN KERNEL
-      </div>
     </main>
   );
 }

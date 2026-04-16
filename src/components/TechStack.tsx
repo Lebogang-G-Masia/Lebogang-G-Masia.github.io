@@ -11,55 +11,33 @@ const tech = [
 
 const TechStack: React.FC = () => {
   return (
-    <section className="py-20 overflow-hidden bg-primary/5">
-      <div className="px-8 md:px-20 mb-10">
-        <h2 className="text-4xl font-bold font-mono border-b border-primary/20 pb-2 inline-block">
-          &gt; ENVIRONMENT
-        </h2>
+    <div className="bento-card h-full flex flex-col group">
+      <div className="flex justify-between items-start mb-8">
+        <div>
+          <span className="text-primary font-mono text-xs tracking-[0.2em] uppercase mb-2 block">
+            Environment
+          </span>
+          <h2 className="text-3xl font-bold tracking-tight">Stack.</h2>
+        </div>
+        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-colors duration-500">
+          <span className="font-bold">03</span>
+        </div>
       </div>
       
-      <div className="flex overflow-hidden">
-        <motion.div 
-          className="flex whitespace-nowrap gap-12 py-4"
-          animate={{ x: [0, -1000] }}
-          transition={{ 
-            repeat: Infinity, 
-            duration: 20, 
-            ease: "linear" 
-          }}
-        >
-          {[...tech, ...tech].map((item, i) => (
-            <span 
-              key={i} 
-              className="text-5xl md:text-7xl font-bold font-mono text-secondary/20 hover:text-primary transition-colors cursor-default"
-            >
-              {item}
-            </span>
-          ))}
-        </motion.div>
+      <div className="flex flex-wrap gap-2 mt-auto">
+        {tech.map((item, i) => (
+          <motion.span 
+            key={i} 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: i * 0.05 }}
+            className="text-sm px-4 py-2 bg-white/5 border border-white/5 rounded-full text-secondary hover:text-white hover:border-primary/50 transition-all cursor-default"
+          >
+            {item}
+          </motion.span>
+        ))}
       </div>
-      
-      <div className="flex overflow-hidden mt-8">
-        <motion.div 
-          className="flex whitespace-nowrap gap-12 py-4"
-          animate={{ x: [-1000, 0] }}
-          transition={{ 
-            repeat: Infinity, 
-            duration: 25, 
-            ease: "linear" 
-          }}
-        >
-          {[...tech, ...tech].reverse().map((item, i) => (
-            <span 
-              key={i} 
-              className="text-5xl md:text-7xl font-bold font-mono text-secondary/20 hover:text-primary transition-colors cursor-default"
-            >
-              {item}
-            </span>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+    </div>
   );
 };
 

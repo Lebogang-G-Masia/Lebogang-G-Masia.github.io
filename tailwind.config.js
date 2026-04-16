@@ -8,17 +8,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "#050505",
-        foreground: "#f0f0f0",
+        background: "#0a0a0a",
+        foreground: "#ffffff",
         primary: {
-          DEFAULT: "#00ff00", // Matrix Green / Arch style
-          dim: "#003300",
+          DEFAULT: "#3b82f6", // Electric Blue
+          dim: "#1d4ed8",
         },
-        secondary: "#666666",
+        secondary: "#737373", // Neutral-400
         accent: "#ffffff",
+        card: "#171717",
+        border: "#262626",
       },
       fontFamily: {
-        mono: ['JetBrains Mono', 'Fira Code', 'ui-monospace', 'monospace'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
     },
   },

@@ -1,122 +1,83 @@
 'use client';
 
-import React, { useRef } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const projects = [
   {
     title: "Lingebra",
-    description: "A custom C++ linear algebra library built from the ground up for high performance.",
+    description: "A custom C++ linear algebra library built from the ground up for high performance and SIMD acceleration.",
     tags: ["C++", "SIMD", "OpenMP"],
-    color: "#00ff00",
     link: "https://github.com/Lebogang-G-Masia/lingebra"
   },
   {
     title: "TensorLearn",
-    description: "A custom machine learning library featuring bespoke neural network implementations.",
+    description: "Deep learning framework featuring bespoke neural network implementations and gradient descent algorithms.",
     tags: ["C++", "Python", "Backprop"],
-    color: "#ffffff",
     link: "https://github.com/Lebogang-G-Masia/tensorlearn"
   },
   {
     title: "UniChows",
-    description: "Backend infrastructure and deployment architecture for a Flutter-based food delivery application.",
+    description: "Infrastructure and deployment architecture for a food delivery platform utilizing Go and GCP.",
     tags: ["Go", "Flutter", "GCP"],
-    color: "#666666",
     link: "https://github.com/UniChows"
   }
 ];
 
-const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
-
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["17.5deg", "-17.5deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-17.5deg", "17.5deg"]);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    x.set(xPct);
-    y.set(yPct);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.div
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateY,
-        rotateX,
-        transformStyle: "preserve-3d",
-      }}
-      className="relative h-96 w-full rounded-sm border border-primary/20 bg-primary/5 p-8 transition-colors duration-500 hover:bg-primary/10"
-    >
-      <div
-        style={{
-          transform: "translateZ(75px)",
-          transformStyle: "preserve-3d",
-        }}
-        className="flex h-full flex-col justify-between"
-      >
-        <div>
-          <h3 className="text-3xl font-bold font-mono mb-4 text-glow" style={{ color: project.color }}>
-            {project.title}
-          </h3>
-          <p className="text-secondary text-lg">
-            {project.description}
-          </p>
-        </div>
-        
-        <div className="flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
-            <span 
-              key={tag} 
-              className="text-xs font-mono px-2 py-1 border border-primary/30 text-primary/70"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
 const Projects: React.FC = () => {
   return (
-    <section className="py-20 px-8 md:px-20">
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-      >
-        <h2 className="text-4xl font-bold mb-12 font-mono border-b border-primary/20 pb-2 inline-block">
-          &gt; REPOSITORIES
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <a href={project.link}>
-                <ProjectCard key={project.title} project={project} />
-            </a>
-          ))}
+    <div className="space-y-6">
+      <div className="flex justify-between items-end mb-4">
+        <div>
+          <span className="text-primary font-mono text-xs tracking-[0.2em] uppercase mb-2 block">
+            Portfolio
+          </span>
+          <h2 className="text-3xl font-bold tracking-tight">Core Repositories.</h2>
         </div>
-      </motion.div>
-    </section>
+        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+          <span className="font-bold">04</span>
+        </div>
+      </div>
+      
+      <div className="grid md:grid-cols-3 gap-6">
+        {projects.map((project, i) => (
+          <motion.a 
+            href={project.link}
+            key={project.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1 }}
+            viewport={{ once: true }}
+            className="bento-card flex flex-col justify-between h-80 group cursor-pointer"
+          >
+            <div>
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
+                <svg className="w-5 h-5 text-secondary group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </div>
+              <p className="text-secondary text-sm leading-relaxed">
+                {project.description}
+              </p>
+            </div>
+            
+            <div className="flex flex-wrap gap-2 pt-4">
+              {project.tags.map((tag) => (
+                <span 
+                  key={tag} 
+                  className="text-[10px] font-mono px-2 py-1 bg-white/5 border border-white/5 rounded-md text-secondary"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </motion.a>
+        ))}
+      </div>
+    </div>
   );
 };
 
