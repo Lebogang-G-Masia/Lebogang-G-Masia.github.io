@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
         className="relative z-10"
       >
         <span className="text-primary font-mono text-sm tracking-widest uppercase mb-4 block">
-          Systems & Machine Learning
+          Systems Engineering & Machine Learning
         </span>
         <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tighter text-gradient leading-none">
           Masia.
