@@ -1,12 +1,16 @@
 'use client';
 
+import React, { useState } from 'react';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Projects from '@/components/Projects';
 import TechStack from '@/components/TechStack';
 import EasterEgg from '@/components/EasterEgg';
+import { Terminal } from 'lucide-react';
 
 export default function Home() {
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+
   return (
     <main className="min-h-screen bg-background selection:bg-primary selection:text-white relative pb-20">
       {/* Background & Overlays */}
@@ -46,11 +50,21 @@ export default function Home() {
         </section>
       </div>
       
-      <footer className="mt-20 py-10 border-t border-white/5 text-center text-secondary text-xs uppercase tracking-widest">
-        &copy; 2026 Lebogang Masia &mdash; Systems & Machine Learning
+      <footer className="mt-20 py-10 border-t border-white/5 text-center text-secondary text-xs uppercase tracking-widest relative">
+        <div className="flex flex-col items-center gap-4">
+          <button 
+            onClick={() => setIsTerminalOpen(!isTerminalOpen)}
+            className="flex items-center gap-2 px-3 py-1.5 rounded-md border border-white/10 hover:border-primary/50 hover:bg-white/5 transition-all group"
+            title="Toggle Terminal (Ctrl + `)"
+          >
+            <Terminal size={14} className="group-hover:text-primary transition-colors" />
+            <span className="group-hover:text-white transition-colors">Terminal</span>
+          </button>
+          <p>&copy; 2026 Lebogang Masia &mdash; Systems & Machine Learning</p>
+        </div>
       </footer>
 
-      <EasterEgg />
+      <EasterEgg isOpen={isTerminalOpen} setIsOpen={setIsTerminalOpen} />
     </main>
   );
 }

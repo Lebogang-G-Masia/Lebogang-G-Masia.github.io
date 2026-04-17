@@ -3,8 +3,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const EasterEgg: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface EasterEggProps {
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
+}
+
+const EasterEgg: React.FC<EasterEggProps> = ({ isOpen, setIsOpen }) => {
   const [input, setInput] = useState('');
   const [history, setHistory] = useState<string[]>(['Welcome to the Kernel. Type a command...']);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -12,13 +16,13 @@ const EasterEgg: React.FC = () => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.ctrlKey && e.key === '`') {
-        setIsOpen(prev => !prev);
+        setIsOpen(!isOpen);
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [isOpen, setIsOpen]);
 
   useEffect(() => {
     if (isOpen && inputRef.current) {
