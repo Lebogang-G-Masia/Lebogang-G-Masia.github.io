@@ -47,7 +47,7 @@ export default function Home() {
       </div>
       
       <footer className="mt-20 py-10 border-t border-white/5 text-center text-secondary text-xs uppercase tracking-widest">
-        &copy; 2024 Lebogang Masia &mdash; Systems & Machine Learning
+        &copy; 2026 Lebogang Masia &mdash; Systems & Machine Learning
       </footer>
 
       <EasterEgg />
