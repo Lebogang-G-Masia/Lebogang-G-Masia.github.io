@@ -6,22 +6,19 @@ import { motion } from 'framer-motion';
 const projects = [
   {
     title: "Lingebra",
-    description: "A custom C++ linear algebra library built from the ground up. Optimized for high performance using SIMD (AVX2/AVX-512) and parallel processing via OpenMP.",
-    stats: "3.5x faster than Eigen (gemm)",
+    description: "A custom C++ linear algebra library built from the ground up for high performance and SIMD acceleration.",
     tags: ["C++20", "SIMD", "OpenMP", "AVX-512"],
     link: "https://github.com/Lebogang-G-Masia/lingebra"
   },
   {
     title: "TensorLearn",
-    description: "Deep learning framework featuring bespoke neural network implementations. Includes a custom auto-grad engine and optimized CUDA kernels for GPU acceleration.",
-    stats: "Custom Autograd | CUDA Support",
+    description: "Deep learning framework featuring bespoke neural network implementations and gradient descent algorithms.",
     tags: ["C++", "CUDA", "Python", "Calculus"],
     link: "https://github.com/Lebogang-G-Masia/tensorlearn"
   },
   {
     title: "UniChows",
-    description: "Infrastructure and deployment architecture for a food delivery platform. Features a microservices architecture with Go and highly scalable GCP cloud functions.",
-    stats: "99.9% Uptime SLA Architecture",
+    description: "Infrastructure and deployment architecture for a food delivery platform utilizing Go and GCP.",
     tags: ["Go", "GCP", "Kubernetes", "Redis"],
     link: "https://github.com/UniChows"
   }
@@ -63,14 +60,9 @@ const Projects: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </div>
-              <p className="text-secondary text-sm leading-relaxed mb-4">
+              <p className="text-secondary text-sm leading-relaxed">
                 {project.description}
               </p>
-              {project.stats && (
-                <div className="text-[10px] font-mono text-primary bg-primary/5 border border-primary/10 rounded px-2 py-1 inline-block">
-                  {project.stats}
-                </div>
-              )}
             </div>
             
             <div className="flex flex-wrap gap-2 pt-4">
