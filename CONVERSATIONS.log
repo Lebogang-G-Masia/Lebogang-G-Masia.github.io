@@ -23,6 +23,8 @@
 - **Commit 0c5b6ca**: Expanded SEO metadata with OpenGraph and Twitter tags.
 - **Commit e4aabb9**: Enhanced `Projects` with performance metrics and `TechStack` with categorization.
 - **Commit 9ecea39**: Expanded terminal functionality with `neofetch`, `cat`, and interactive `ls`.
+- **Commit f08d53b**: Removed `MatrixBackground` and `SideMonitor` from UI.
+- **Commit 4d62b42**: Removed performance metrics and reverted descriptions in `Projects`.
 
 ### Status: 
-Successfully completed all planned improvements.
+Successfully completed improvements, then reverted specific UI components and project metrics as per follow-up request.
