@@ -7,8 +7,6 @@ import Projects from '@/components/Projects';
 import TechStack from '@/components/TechStack';
 import EasterEgg from '@/components/EasterEgg';
 import Loader from '@/components/Loader';
-import SideMonitor from '@/components/SideMonitor';
-import MatrixBackground from '@/components/MatrixBackground';
 import { Terminal } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -24,14 +22,11 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      <SideMonitor />
-      <MatrixBackground />
-
       <motion.main 
         initial={{ opacity: 0 }}
         animate={{ opacity: isLoading ? 0 : 1 }}
         transition={{ duration: 0.8 }}
-        className="min-h-screen bg-background selection:bg-primary selection:text-white relative pb-20 md:pl-20"
+        className="min-h-screen bg-background selection:bg-primary selection:text-white relative pb-20"
       >
         {/* Background & Overlays */}
         <div className="fixed inset-0 bg-dot-pattern pointer-events-none opacity-50" />
