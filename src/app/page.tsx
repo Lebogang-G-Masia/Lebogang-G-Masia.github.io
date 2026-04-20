@@ -7,6 +7,8 @@ import Projects from '@/components/Projects';
 import TechStack from '@/components/TechStack';
 import EasterEgg from '@/components/EasterEgg';
 import Loader from '@/components/Loader';
+import SideMonitor from '@/components/SideMonitor';
+import MatrixBackground from '@/components/MatrixBackground';
 import { Terminal } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -22,11 +24,14 @@ export default function Home() {
         )}
       </AnimatePresence>
 
+      <SideMonitor />
+      <MatrixBackground />
+
       <motion.main 
         initial={{ opacity: 0 }}
         animate={{ opacity: isLoading ? 0 : 1 }}
         transition={{ duration: 0.8 }}
-        className="min-h-screen bg-background selection:bg-primary selection:text-white relative pb-20"
+        className="min-h-screen bg-background selection:bg-primary selection:text-white relative pb-20 md:pl-20"
       >
         {/* Background & Overlays */}
         <div className="fixed inset-0 bg-dot-pattern pointer-events-none opacity-50" />
@@ -36,9 +41,9 @@ export default function Home() {
           <div className="max-w-6xl w-full px-6 flex justify-between items-center">
             <span className="font-bold tracking-tighter text-xl">MASIA.</span>
             <div className="flex gap-8 text-sm font-medium text-secondary">
-              <a href="#about" className="hover:text-white transition-colors">About</a>
-              <a href="#projects" className="hover:text-white transition-colors">Projects</a>
-              <a href="#stack" className="hover:text-white transition-colors">Tech</a>
+              <a href="#about" className="hover:text-white transition-colors" aria-label="Navigate to About section">About</a>
+              <a href="#projects" className="hover:text-white transition-colors" aria-label="Navigate to Projects section">Projects</a>
+              <a href="#stack" className="hover:text-white transition-colors" aria-label="Navigate to Tech Stack section">Tech</a>
             </div>
           </div>
         </nav>
@@ -72,6 +77,7 @@ export default function Home() {
               onClick={() => setIsTerminalOpen(!isTerminalOpen)}
               className="flex items-center gap-2 px-3 py-1.5 rounded-md border border-white/10 hover:border-primary/50 hover:bg-white/5 transition-all group"
               title="Toggle Terminal (Ctrl + `)"
+              aria-label="Toggle terminal interface"
             >
               <Terminal size={14} className="group-hover:text-primary transition-colors" />
               <span className="group-hover:text-white transition-colors">Terminal</span>

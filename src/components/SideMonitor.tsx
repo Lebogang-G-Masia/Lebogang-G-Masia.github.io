@@ -21,7 +21,7 @@ const SideMonitor: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed left-0 top-0 h-full w-16 md:w-20 border-r border-primary/20 bg-background flex flex-col items-center py-10 z-50 overflow-hidden font-mono text-[10px]">
+    <div className="fixed left-0 top-0 h-full w-16 md:w-20 border-r border-primary/20 bg-background hidden md:flex flex-col items-center py-10 z-50 overflow-hidden font-mono text-[10px]">
       <div className="rotate-90 origin-center whitespace-nowrap mb-20 text-primary font-bold tracking-[0.3em]">
         KERNEL_V7.2
       </div>

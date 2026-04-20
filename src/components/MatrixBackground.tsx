@@ -9,6 +9,9 @@ const MatrixBackground: React.FC = () => {
   useEffect(() => {
     if (!containerRef.current) return;
 
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // Scene setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -19,7 +22,7 @@ const MatrixBackground: React.FC = () => {
     containerRef.current.appendChild(renderer.domElement);
 
     // Particles representing "computational logic / neural nodes"
-    const particlesCount = 1000;
+    const particlesCount = prefersReducedMotion ? 200 : 1000;
     const positions = new Float32Array(particlesCount * 3);
     const colors = new Float32Array(particlesCount * 3);
     const sizes = new Float32Array(particlesCount);

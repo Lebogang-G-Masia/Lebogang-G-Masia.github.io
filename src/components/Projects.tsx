@@ -49,6 +49,7 @@ const Projects: React.FC = () => {
             transition={{ delay: i * 0.1 }}
             viewport={{ once: true }}
             className="bento-card flex flex-col justify-between h-80 group cursor-pointer"
+            aria-label={`View ${project.title} project on GitHub`}
           >
             <div>
               <div className="flex justify-between items-center mb-4">
