@@ -1,0 +1,28 @@
+# Conversation Log - Lebogang Masia Portfolio Improvements
+
+## Date: 2026-04-20
+
+### User Request:
+"What improvements would you suggest for my portfolio website?"
+
+### Agent Analysis:
+- Strong technical aesthetic but some implemented components were not being used (`MatrixBackground`, `SideMonitor`).
+- Technical depth could be enhanced with specific performance metrics for C++/ML projects.
+- SEO and professional sharing metadata were basic.
+- Terminal (Easter Egg) had potential for more interactivity.
+- Accessibility and performance (reduced motion) could be improved.
+
+### Action Plan:
+1. Integrate `MatrixBackground` and `SideMonitor` with accessibility fixes.
+2. Enhance SEO metadata (OpenGraph/Twitter).
+3. Add performance specs and categorize the tech stack.
+4. Expand terminal with `neofetch`, `cat`, and a virtual filesystem.
+
+### Implementation History:
+- **Commit 61d5b73**: Integrated `MatrixBackground` and `SideMonitor`, added ARIA labels, and implemented `prefers-reduced-motion` check.
+- **Commit 0c5b6ca**: Expanded SEO metadata with OpenGraph and Twitter tags.
+- **Commit e4aabb9**: Enhanced `Projects` with performance metrics and `TechStack` with categorization.
+- **Commit 9ecea39**: Expanded terminal functionality with `neofetch`, `cat`, and interactive `ls`.
+
+### Status: 
+Successfully completed all planned improvements.
