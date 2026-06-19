@@ -738,7 +738,7 @@ export default function Portfolio() {
                   GOT A QUESTION, PROPOSAL, PROJECT, OR WANT TO WORK TOGETHER ON SOMETHING?
                 </p>
                 <a
-                  href="mailto:lebogang@example.com"
+                  href="mailto:masialebogang2@gmail.com"
                   className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full text-sm font-semibold text-white overflow-hidden relative"
                   style={{ background: "linear-gradient(135deg, #9f1239, #be123c)" }}
                 >
@@ -760,7 +760,7 @@ export default function Portfolio() {
               >
                 {[
                   { name: "GITHUB", href: "https://github.com/Lebogang-G-Masia" },
-                  { name: "LINKEDIN", href: "#" },
+                  { name: "LINKEDIN", href: "https://linkedin.com/in/lebogang-masia" },
                 ].map(({ name, href }) => (
                   <a
                     key={name}
